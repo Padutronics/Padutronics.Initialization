@@ -12,4 +12,11 @@ public static class ResettableLazyExtensions
             @this.Value.Dispose();
         }
     }
+
+    public static void DisposeAndReset<T>(this ResettableLazy<T> @this)
+        where T : IDisposable
+    {
+        @this.Dispose();
+        @this.Reset();
+    }
 }
